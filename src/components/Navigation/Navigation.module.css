@@ -1,0 +1,20 @@
+.navigation {
+    
+    ul {
+        display: flex;
+        gap: 32px;
+        box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.35);
+        padding: 16px 24px;
+    }
+
+    a {
+        font-size: 18px;
+        width: 100%;
+        
+    }
+
+    a.isActive {
+        color: blueviolet;
+        font-weight: 500;
+    }
+}
