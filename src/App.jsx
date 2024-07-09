@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import Home from './pages/HomePage/HomePage';
 import Movies from './pages/MoviesPage/MoviesPage';
+import NotFound from './pages/NotFound/NotFound'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/movies' element={<Movies />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       </div>
     </div>

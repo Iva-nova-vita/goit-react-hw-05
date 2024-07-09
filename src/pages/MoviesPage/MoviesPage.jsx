@@ -1,5 +1,9 @@
+import Search from "../../components/Search/Search";
+
 export default function Movies() {
     return (
-        <div>Movies page</div>
+        <div>
+            <Search></Search>
+        </div>
     )
 }

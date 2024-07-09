@@ -1,0 +1,8 @@
+.notFoundText {
+    padding: 24px 0;
+    
+    a {
+        text-decoration: underline;
+        color: blueviolet;
+    }
+}
