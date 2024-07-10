@@ -1,6 +1,6 @@
 import Search from "../../components/Search/Search";
 
-export default function Movies() {
+export default function MoviesPage() {
     return (
         <div>
             <Search></Search>

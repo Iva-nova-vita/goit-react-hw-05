@@ -1,12 +1,12 @@
 import css from './App.module.css';
 import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
-import Home from './pages/HomePage/HomePage';
-import Movies from './pages/MoviesPage/MoviesPage';
-import NotFound from './pages/NotFound/NotFound';
-import Cast from './components/Cast/Cast';
-import Reviews from './components/Reviews/Reviews';
-import MovieDetails from './pages/MovieDetails/MovieDetails';
+import HomePage from './pages/HomePage/HomePage';
+import MoviesPage from './pages/MoviesPage/MoviesPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import MovieCast from './components/MovieCast/MovieCast';
+import MovieReviews from './components/MovieReviews/MovieReviews';
+import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
 
 function App() {
   return (
@@ -14,13 +14,13 @@ function App() {
       <Navigation></Navigation>
       <div className={css.container}>
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/movies' element={<Movies />} />
-          <Route path='/movies/:moviesId' element={<MovieDetails />}>
-            <Route path='cast' element={<Cast />} />
-            <Route path='reviews' element={<Reviews />} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/movies' element={<MoviesPage />} />
+          <Route path='/movies/:moviesId' element={<MovieDetailsPage />}>
+            <Route path='cast' element={<MovieCast />} />
+            <Route path='reviews' element={<MovieReviews />} />
           </Route>
-          <Route path='*' element={<NotFound />} />
+          <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </div>
     </div>

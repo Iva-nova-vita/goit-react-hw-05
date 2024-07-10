@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 
-export default function MovieDetails() {
+export default function MovieDetailsPage() {
   return (
     <div>
       MovieDetails

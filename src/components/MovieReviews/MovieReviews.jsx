@@ -1,4 +1,4 @@
-export default function Reviews() {
+export default function MovieReviews() {
     return (
         <div>Reviews .............</div>
     )
