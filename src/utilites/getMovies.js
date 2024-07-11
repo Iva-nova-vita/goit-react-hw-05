@@ -1,0 +1,12 @@
+import axios from 'axios';
+const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
+const options = {
+  headers: {
+    Authorization:
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNjM2ZjgzYmQ2YzdjZDlkODhhMDVjZjFlYTA4MzA4ZSIsIm5iZiI6MTcyMDYyODc3OS42MjgwNCwic3ViIjoiNjY4ZDY0NDc0NzA4Njc5Y2NmMzI5ZWJiIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.87JPCXEg1E0DGdTDPu-8RGK9XQJaLi2NIlSkBuf9z14',
+  },
+};
+export default async function getMovies() {
+    const response = await axios.get(url, options);
+    return response.data.results
+}
