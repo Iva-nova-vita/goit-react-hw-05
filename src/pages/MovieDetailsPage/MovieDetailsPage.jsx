@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { NavLink, Link, Outlet, useLocation } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
 import { Vortex } from 'react-loader-spinner';
 
 import { getMoviesById } from '../../utilites/getData';
@@ -73,7 +73,9 @@ export default function MovieDetailsPage() {
               </NavLink>
             </li>
           </ul>
-          <Outlet />
+          <Suspense fallback={<div>Loading data</div>}>
+            <Outlet />
+          </Suspense>
         </>
       )}
     </div>
