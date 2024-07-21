@@ -1,41 +1,64 @@
 import { useParams } from 'react-router-dom';
 import { Link, Outlet } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import { getMoviesById } from '../../utilites/getMovies';
 import MovieInfo from '../../components/MovieInfo/MovieInfo';
+import { Vortex } from 'react-loader-spinner';
 
 export default function MovieDetailsPage() {
-  const {moviesId} = useParams();
-  console.log(moviesId)
+  const { moviesId } = useParams();
+  console.log(moviesId);
 
   const [movieDetails, setMovieDetails] = useState(null);
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     async function getMovieDetails() {
       try {
         const result = await getMoviesById(moviesId);
         console.log(result);
         setMovieDetails(result);
       } catch (error) {
-        console.log(error)
-      } 
+        console.log(error);
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     getMovieDetails();
   }, [moviesId]);
   return (
     <div>
-      {movieDetails && <MovieInfo info={movieDetails}/>}
+      {movieDetails && <MovieInfo info={movieDetails} />}
+      {isError && <div>Something went wrong...</div>}
+      {isLoading && (
+        <Vortex
+          visible={true}
+          height='80'
+          width='80'
+          ariaLabel='vortex-loading'
+          wrapperStyle={{}}
+          wrapperClass='vortex-wrapper'
+          colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
+        />
+      )}
 
-      <ul>
-        <li>
-          <Link to="cast">cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">Go through the reviews</Link>
-        </li>
-      </ul>
-      <Outlet />
+      {movieDetails && (
+        <>
+          <ul>
+            <li>
+              <Link to='cast'>cast</Link>
+            </li>
+            <li>
+              <Link to='reviews'>Go through the reviews</Link>
+            </li>
+          </ul>
+          <Outlet />
+        </>
+      )}
     </div>
   );
 }

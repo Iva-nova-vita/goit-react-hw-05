@@ -5,6 +5,8 @@ export default function MovieInfo({ info }) {
   return (
     <div className={css.card}>
       <img
+      width='300'
+      height='450'
         className={css.cardImg}
         src={'https://image.tmdb.org/t/p/w500' + poster_path}
       ></img>
