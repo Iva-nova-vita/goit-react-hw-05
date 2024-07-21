@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { NavLink, Link, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
+import { Vortex } from 'react-loader-spinner';
+
 import { getMoviesById } from '../../utilites/getData';
 import MovieInfo from '../../components/MovieInfo/MovieInfo';
-import { Vortex } from 'react-loader-spinner';
 
 import css from './MovieDetailsPage.module.css';
 
@@ -15,14 +16,13 @@ export default function MovieDetailsPage() {
   const [isLoading, setIsLoading] = useState(false);
 
   const location = useLocation();
-  const backLinkRef = useRef(location.state ?? "/");
+  const backLinkRef = useRef(location.state ?? '/');
 
   useEffect(() => {
     setIsLoading(true);
     async function getMovieDetails() {
       try {
         const result = await getMoviesById(moviesId);
-        console.log(result);
         setMovieDetails(result);
       } catch (error) {
         console.log(error);
@@ -36,7 +36,9 @@ export default function MovieDetailsPage() {
   }, [moviesId]);
   return (
     <div>
-      <Link to={backLinkRef.current} className='link'>Go back</Link>
+      <Link to={backLinkRef.current} className='link'>
+        Go back
+      </Link>
       {movieDetails && <MovieInfo info={movieDetails} />}
       {isError && <div>Something went wrong...</div>}
       {isLoading && (
@@ -55,10 +57,20 @@ export default function MovieDetailsPage() {
         <>
           <ul className={css.tabs}>
             <li>
-              <NavLink to='cast' className={({ isActive }) => isActive ? css.isActive : ''}>Cast</NavLink>
+              <NavLink
+                to='cast'
+                className={({ isActive }) => (isActive ? css.isActive : '')}
+              >
+                Cast
+              </NavLink>
             </li>
             <li>
-              <NavLink to='reviews' className={({ isActive }) => isActive ? css.isActive : ''}>Go through the reviews</NavLink>
+              <NavLink
+                to='reviews'
+                className={({ isActive }) => (isActive ? css.isActive : '')}
+              >
+                Go through the reviews
+              </NavLink>
             </li>
           </ul>
           <Outlet />

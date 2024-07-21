@@ -1,9 +1,10 @@
 import css from './MovieInfo.module.css';
+
 export default function MovieInfo({ info }) {
   const { poster_path, title, vote_average, overview, genres } = info;
   const defaultImg =
     'https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster';
-  console.log(info);
+
   return (
     <div className={css.card}>
       <img

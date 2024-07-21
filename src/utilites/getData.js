@@ -35,7 +35,6 @@ export async function getMovieCredits(movie_id) {
     `https://api.themoviedb.org/3/movie/${movie_id}/credits`,
     options
   );
-  console.log(response.data.cast)
   return response.data.cast;
 }
 
@@ -52,6 +51,5 @@ export async function getMovieBySearch(query) {
       },
     }
   );
-  console.log(response.data.results)
   return response.data.results;
 }

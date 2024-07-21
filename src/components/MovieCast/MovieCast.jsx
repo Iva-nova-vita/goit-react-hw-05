@@ -1,11 +1,12 @@
-import { getMovieCredits } from '../../utilites/getData';
-import css from './MovieCast.module.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { getMovieCredits } from '../../utilites/getData';
+
+import css from './MovieCast.module.css';
+
 export default function MovieCast() {
   const { moviesId } = useParams();
-  console.log(moviesId);
   const [movieCredits, setMovieCredits] = useState([]);
   const [noData, setNoData] = useState(false);
   const defaultImg =
@@ -16,7 +17,6 @@ export default function MovieCast() {
       try {
         setNoData(false);
         const result = await getMovieCredits(moviesId);
-        console.log(result);
         setMovieCredits(result);
         result.length > 0 ? setNoData(false) : setNoData(true);
       } catch (error) {

@@ -1,7 +1,8 @@
-import Search from '../../components/Search/Search';
-import MovieList from '../../components/MovieList/MovieList';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
+import Search from '../../components/Search/Search';
+import MovieList from '../../components/MovieList/MovieList';
 import { getMovieBySearch } from '../../utilites/getData';
 
 export default function MoviesPage() {
@@ -11,14 +12,13 @@ export default function MoviesPage() {
   const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
-    if (query === "") {
-        return;
-      }
+    if (query === '') {
+      return;
+    }
     async function getMovies() {
       try {
         setNoData(false);
         const result = await getMovieBySearch(query);
-        console.log(result);
         setMoviesBySearch(result);
         result.length > 0 ? setNoData(false) : setNoData(true);
       } catch (error) {
