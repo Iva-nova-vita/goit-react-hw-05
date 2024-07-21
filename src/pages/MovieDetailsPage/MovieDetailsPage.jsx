@@ -7,7 +7,6 @@ import { Vortex } from 'react-loader-spinner';
 
 export default function MovieDetailsPage() {
   const { moviesId } = useParams();
-  console.log(moviesId);
 
   const [movieDetails, setMovieDetails] = useState(null);
   const [isError, setIsError] = useState(false);

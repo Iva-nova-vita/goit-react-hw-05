@@ -21,3 +21,11 @@ export async function getMoviesById(movie_id) {
   );
   return response.data;
 }
+
+export async function getMovieReviews(movie_id) {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movie_id}/reviews`,
+    options
+  );
+  return response.data.results;
+}
