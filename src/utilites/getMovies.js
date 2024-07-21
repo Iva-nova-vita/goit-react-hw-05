@@ -29,3 +29,12 @@ export async function getMovieReviews(movie_id) {
   );
   return response.data.results;
 }
+
+export async function getMovieCredits(movie_id) {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movie_id}/credits`,
+    options
+  );
+  console.log(response.data.cast)
+  return response.data.cast;
+}

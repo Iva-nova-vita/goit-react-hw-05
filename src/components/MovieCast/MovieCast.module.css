@@ -1,0 +1,9 @@
+.cast {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+
+    li {
+        max-width: 250px;
+    }
+}
