@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { Link, Outlet } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
 import { getMoviesById } from '../../utilites/getMovies';
 import MovieInfo from '../../components/MovieInfo/MovieInfo';
 import { Vortex } from 'react-loader-spinner';
@@ -11,6 +11,9 @@ export default function MovieDetailsPage() {
   const [movieDetails, setMovieDetails] = useState(null);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const location = useLocation();
+  const backLinkRef = useRef(location.state ?? "/");
 
   useEffect(() => {
     setIsLoading(true);
@@ -31,6 +34,7 @@ export default function MovieDetailsPage() {
   }, [moviesId]);
   return (
     <div>
+      <Link to={backLinkRef.current} className='link'>Go back</Link>
       {movieDetails && <MovieInfo info={movieDetails} />}
       {isError && <div>Something went wrong...</div>}
       {isLoading && (
