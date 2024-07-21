@@ -1,9 +1,11 @@
 import { useParams } from 'react-router-dom';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Link, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { getMoviesById } from '../../utilites/getMovies';
 import MovieInfo from '../../components/MovieInfo/MovieInfo';
 import { Vortex } from 'react-loader-spinner';
+
+import css from './MovieDetailsPage.module.css';
 
 export default function MovieDetailsPage() {
   const { moviesId } = useParams();
@@ -51,12 +53,12 @@ export default function MovieDetailsPage() {
 
       {movieDetails && (
         <>
-          <ul>
+          <ul className={css.tabs}>
             <li>
-              <Link to='cast'>cast</Link>
+              <NavLink to='cast' className={({ isActive }) => isActive ? css.isActive : ''}>Cast</NavLink>
             </li>
             <li>
-              <Link to='reviews'>Go through the reviews</Link>
+              <NavLink to='reviews' className={({ isActive }) => isActive ? css.isActive : ''}>Go through the reviews</NavLink>
             </li>
           </ul>
           <Outlet />
