@@ -1,4 +1,4 @@
-import { getMovieCredits } from '../../utilites/getMovies';
+import { getMovieCredits } from '../../utilites/getData';
 import css from './MovieCast.module.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';

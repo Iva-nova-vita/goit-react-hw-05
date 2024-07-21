@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { NavLink, Link, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
-import { getMoviesById } from '../../utilites/getMovies';
+import { getMoviesById } from '../../utilites/getData';
 import MovieInfo from '../../components/MovieInfo/MovieInfo';
 import { Vortex } from 'react-loader-spinner';
 
