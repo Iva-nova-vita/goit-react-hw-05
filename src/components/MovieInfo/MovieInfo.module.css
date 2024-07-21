@@ -1,0 +1,40 @@
+.card,
+.cardGenres {
+  display: flex;
+  gap: 24px;
+}
+@media screen and (max-width: 576px) {
+  .card {
+    flex-direction: column;
+  }
+}
+
+.cardGenres {
+    flex-wrap: wrap;
+}
+
+.cardInfo {
+  flex-direction: column;
+}
+
+.cardImg {
+  display: block;
+  max-width: 300px;
+  height: fit-content;
+}
+
+.cardTitle,
+.cardAverage span,
+.bold {
+  font-weight: bold;
+}
+
+.cardTitle,
+.card {
+  margin: 24px 0;
+}
+
+.cardAverage,
+.cardOverview {
+  margin-bottom: 24px;
+}

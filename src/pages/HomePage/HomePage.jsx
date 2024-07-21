@@ -1,5 +1,5 @@
 import MovieList from '../../components/MovieList/MovieList';
-import getMovies from '../../utilites/getMovies';
+import {getMovies} from '../../utilites/getMovies';
 
 import { useEffect, useState } from 'react';
 
