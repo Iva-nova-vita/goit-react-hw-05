@@ -7,6 +7,7 @@ export default function MovieReviews() {
   const { moviesId } = useParams();
   console.log(moviesId);
   const [movieReviews, setMovieReviews] = useState([]);
+  const [noData, setNoData] = useState(false);
 
   useEffect(() => {
     async function getMovieDetails() {
@@ -14,6 +15,7 @@ export default function MovieReviews() {
         const result = await getMovieReviews(moviesId);
         console.log(result);
         setMovieReviews(result);
+        result.length > 0 ? setNoData(false) : setNoData(true);
       } catch (error) {
         console.log(error);
       }
@@ -32,6 +34,7 @@ export default function MovieReviews() {
             </li>
           ))}
         </ul>
+        {noData && <p>There are no reviews yet</p>}
       </div>
     )
   );
