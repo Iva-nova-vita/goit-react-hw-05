@@ -14,6 +14,7 @@ export default function MovieCast() {
   useEffect(() => {
     async function getMovieDetails() {
       try {
+        setNoData(false);
         const result = await getMovieCredits(moviesId);
         console.log(result);
         setMovieCredits(result);

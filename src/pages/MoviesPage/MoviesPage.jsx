@@ -11,8 +11,12 @@ export default function MoviesPage() {
   const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
+    if (query === "") {
+        return;
+      }
     async function getMovies() {
       try {
+        setNoData(false);
         const result = await getMovieBySearch(query);
         console.log(result);
         setMoviesBySearch(result);

@@ -12,6 +12,7 @@ export default function MovieReviews() {
   useEffect(() => {
     async function getMovieDetails() {
       try {
+        setNoData(false);
         const result = await getMovieReviews(moviesId);
         console.log(result);
         setMovieReviews(result);
